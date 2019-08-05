@@ -1,0 +1,48 @@
+<odoo>
+      <template id="campos_especiales" inherit_id="sale.report_saleorder_document">
+            <xpath expr="/t/t/div/table/thead/tr/th[2]" position="after">
+    <th>
+      <span>Precio publico</span>
+    </th>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[2]" position="after">
+    <td>
+      <span t-field="line.public_price"/>
+    </td>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/t[3]/tr/td" position="attributes">
+    <attribute name="colspan">100</attribute>
+  </xpath>
+
+
+  <xpath expr="/t/t/div/table/thead/tr/th[4]" position="after">
+    <th t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
+      <span>Precio especial</span>
+    </th>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[4]" position="after">
+    <td t-if="display_discount" class="text-right" groups="sale.group_discount_per_so_line">
+      <span t-field="line.especial_price"/>
+    </td>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/t[3]/tr/td" position="attributes">
+    <attribute name="colspan">101</attribute>
+  </xpath> 
+  
+  <xpath expr="/t/t/div/table/thead/tr/th[4]" position="replace">
+    <th>
+      <span>Precio Distribuidor</span>
+    </th>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/tr/t[1]/td[4]" position="replace">
+    <td>
+      <span t-field="line.price_unit"/>
+    </td>
+  </xpath>
+  <xpath expr="/t/t/div/table/tbody/t[2]/t[3]/tr/td" position="replace">
+    <attribute name="colspan">102</attribute>
+  </xpath>
+       
+        </template>
+
+</odoo>

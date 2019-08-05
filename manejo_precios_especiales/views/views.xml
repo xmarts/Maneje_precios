@@ -1,0 +1,30 @@
+<odoo>
+  <data>
+   
+      <record id="view_company_form_inherit_clave" model="ir.ui.view">
+          <field name="name">view.company.form.add.text.field.clave</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//tree//field[@name='product_uom_qty']" position="after">
+              <field name="public_price"/>
+            </xpath> 
+            <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="attributes">
+                <attribute name="string">Precio distribuidor</attribute>
+            </xpath>
+           </field>
+      </record>
+
+        <record id="view_company_form_inherit_price" model="ir.ui.view">
+          <field name="name">view.company.form.add.text.field.price</field>
+          <field name="model">sale.order</field>
+          <field name="inherit_id" ref="sale.view_order_form"/>
+          <field name="arch" type="xml">
+            <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="after">
+              <field name="especial_price"  groups="sale.group_discount_per_so_line" />
+            </xpath> 
+           </field>
+      </record>
+      
+  </data>
+</odoo>

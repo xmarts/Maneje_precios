@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template id="template" xml:space="preserve">
+    <t t-extend="stock_barcode_lines_widget">
+        <t t-jquery='button[class="btn btn-secondary text-uppercase o_add_line"]' t-operation='replace'>
+        </t>   
+    </t> 
+ </template>
