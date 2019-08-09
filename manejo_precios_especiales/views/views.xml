@@ -21,8 +21,12 @@
           <field name="inherit_id" ref="sale.view_order_form"/>
           <field name="arch" type="xml">
             <xpath expr="//field[@name='order_line']//tree//field[@name='price_unit']" position="after">
-              <field name="especial_price"  groups="sale.group_discount_per_so_line" />
+              <field name="especial_price"  groups="sale.group_discount_per_so_line"  attrs="{'column_invisible':[('parent.dis','=',False)]}"/>
             </xpath> 
+
+            <xpath expr="//field[@name='payment_term_id']" position="after">
+              <field name="dis" invisible="1"/>
+            </xpath>
            </field>
       </record>
       
